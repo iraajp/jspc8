@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Greeting</title>
     <style>
-        body { font-family: Arial; margin: 40px; }
-        #msg { font-size: 28px; color: #0066cc; margin: 20px 0; }
+      body {
+        font-family: Arial;
+        margin: 40px;
+      }
+      #msg {
+        font-size: 28px;
+        color: #0066cc;
+        margin: 20px 0;
+      }
     </style>
-</head>
-<body>
-    <h2>8.2 Time-based Greeting</h2>
+  </head>
+  <body>
+    <h2>Time-based Greeting</h2>
     <div id="msg"></div>
     <p>Welcome to our site, open 24 hours a day.</p>
     <p>Time: <span id="time"></span></p>
     <p><a href="index.html">Back</a></p>
     <script>
-        fetch('/api/greeting')
-            .then(r => r.json())
-            .then(d => {
-                document.getElementById('msg').textContent = d.message;
-                document.getElementById('time').textContent = d.time;
-            });
+      fetch("/api/greeting")
+        .then((r) => r.json())
+        .then((d) => {
+          document.getElementById("msg").textContent = d.message;
+          document.getElementById("time").textContent = d.time;
+        });
     </script>
-</body>
+  </body>
 </html>
