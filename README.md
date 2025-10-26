@@ -1,6 +1,6 @@
 # Practical 8: JSP Implicit and Explicit Objects Programs (Combined)
 
-This folder contains all three JSP examples in one server for easy running.
+This folder contains all three JSP examples. You can run them using **actual Java JSP** (Tomcat) or **Node.js** for quick testing.
 
 ## Programs included
 
@@ -8,7 +8,36 @@ This folder contains all three JSP examples in one server for easy running.
 - **8.2 greetings.jsp** - Time-based greeting message
 - **8.3 userinfo1.jsp** - User information form and display
 
-## How to run
+## Option 1: Run with Java/Tomcat (Actual JSP) ⭐ RECOMMENDED FOR ASSIGNMENT
+
+### Prerequisites
+- Java JDK installed
+- Apache Tomcat installed
+
+### Steps
+
+1. **Deploy to Tomcat:**
+   - Copy all `.jsp` files (`dispDate.jsp`, `greetings.jsp`, `userinfo1.jsp`, `userform.jsp`, `index.jsp`) to your Tomcat `webapps` directory
+   - Example: `/path/to/tomcat/webapps/practical8/`
+
+2. **Start Tomcat:**
+   ```bash
+   cd /path/to/tomcat/bin
+   ./startup.sh  # macOS/Linux
+   # or startup.bat on Windows
+   ```
+
+3. **Access in browser:**
+   ```
+   http://localhost:8080/practical8/index.jsp
+   ```
+
+### Individual JSP URLs:
+- `http://localhost:8080/practical8/dispDate.jsp`
+- `http://localhost:8080/practical8/greetings.jsp`
+- `http://localhost:8080/practical8/userform.jsp`
+
+## Option 2: Run with Node.js (For Quick Testing)
 
 1. Install dependencies:
 ```bash
