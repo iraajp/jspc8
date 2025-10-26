@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Info</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        label { display: block; margin: 8px 0 3px; }
+        input { padding: 5px; width: 200px; }
+        button { margin-top: 10px; padding: 8px 16px; background: #0066cc; color: white; border: none; }
+        #output { margin-top: 20px; padding: 10px; background: #f0f0f0; display: none; }
+    </style>
+</head>
+<body>
+    <h2>8.3 User Information</h2>
+    <form id="form">
+        <label>Name:</label>
+        <input type="text" name="userName" required>
+        
+        <label>Birth Date:</label>
+        <input type="date" name="birthDate" required>
+        
+        <label>Email:</label>
+        <input type="email" name="emailAddr" required>
+        
+        <label>Lucky Number:</label>
+        <input type="number" name="luckyNo" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="output">
+        <h3>Details:</h3>
+        <ul>
+            <li>Name: <span id="n"></span></li>
+            <li>Birth Date: <span id="b"></span></li>
+            <li>Email: <span id="e"></span></li>
+            <li>Lucky: <span id="l"></span></li>
+        </ul>
+    </div>
+    
+    <p><a href="index.html">Back</a></p>
+    
+    <script>
+        document.getElementById('form').onsubmit = function(ev) {
+            ev.preventDefault();
+            const fd = new FormData(ev.target);
+            const p = new URLSearchParams(fd).toString();
+            
+            fetch('/api/userinfo?' + p)
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById('n').textContent = d.name;
+                    document.getElementById('b').textContent = d.birthDate;
+                    document.getElementById('e').textContent = d.email;
+                    document.getElementById('l').textContent = d.luckyNumber;
+                    document.getElementById('output').style.display = 'block';
+                });
+        };
+    </script>
+</body>
+</html>

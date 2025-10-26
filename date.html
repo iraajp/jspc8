@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date Display</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .box { border: 1px solid #ccc; padding: 10px; margin: 10px 0; background: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h2>8.1 Display Date and Time</h2>
+    <div class="box">
+        <strong>Current Date:</strong>
+        <p id="date"></p>
+    </div>
+    <div class="box">
+        <strong>GMT String:</strong>
+        <p id="gmt"></p>
+    </div>
+    <p><a href="index.html">Back</a></p>
+    <script>
+        fetch('/api/date')
+            .then(r => r.json())
+            .then(d => {
+                document.getElementById('date').textContent = d.date;
+                document.getElementById('gmt').textContent = d.gmt;
+            });
+    </script>
+</body>
+</html>
